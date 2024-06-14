@@ -1,0 +1,46 @@
+
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Online Bazar | Login Page</title>
+{%  endblock %}
+    
+{% block body %}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"></div>
+        <img src="{% static 'picture/login-button.jpg' %}" class="w-25">
+    </div>
+
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"></div>
+        <h3 style="font-family: cursive;"class="p-3 mb-2 bg-white text-black">Login Section</h3>
+        {% for i in messages %}
+        <div class="alert alert-danger" role="alert">
+          {{i}}
+        </div>
+    
+        {% endfor %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3" class="w-25">
+              <label style="font-family: cursive;"for="username" class="form-label">User Name</label>
+              <input style="font-family: cursive;"type="text" class="form-control" name="username" placeholder="Enter User Name">
+              
+            </div>
+            <div class="mb-3" class="w-25">
+              <label style="font-family: cursive;"for="password" class="form-label">Password</label>
+              <input style="font-family: cursive;"type="password" class="form-control" name="password" placeholder="Enter User Password">
+            </div>
+            
+            <button style="font-family: cursive;"type="submit" class="btn btn-primary">Login</button>
+            <br>
+            <a style="font-family: cursive;"href="/forget-username/" class="text-decoration-none">Forget Password</a>
+            <br>
+            <a style="font-family: cursive;"href="/signup/" class="text-decoration-none">New User? Create Account</a>
+          </form>
+    </div>
+</div>
+{% endblock %}

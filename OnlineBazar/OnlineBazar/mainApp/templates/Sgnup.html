@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Online Bazar | SingUp Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-3">
+   <div class="row">
+     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <img src="{% static 'picture/join.jpg' %}" class="w-75">
+     </div>
+   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+      <h3 class="p-2 mb-2 bg-white text-black text-center">Signup Section</h3>
+   
+
+
+    {% for i in messages %}
+    <div class="alert alert-danger" role="alert">
+      {{i}}
+    </div>
+
+    {% endfor %}
+
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="mb-1">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
+
+      </div>
+      <div class="mb-1">
+        <label for="username" class="form-label">User Name</label>
+        <input type="text" class="form-control" name="username" placeholder="Enter Your Name">
+
+      </div>
+      <div class="mb-1">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" name="phone" placeholder="Enter Your Phone No">
+
+      </div>
+      <div class="mb-1">
+        <label for="email" class="form-label">Email Id</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Your Email Id">
+
+      </div>
+      <div class="mb-1">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter User Password">
+      </div>
+      <div class="mb-1">
+        <label for="cpassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="cpassword" placeholder="Enter User Password">
+      </div>
+
+      <div class="mb-1">
+        <label for="accounttype" class="form-label">Account Type</label>
+        <select name="actype" class="form-control">
+          <option value="seller">Seller</option>
+          <option value="buyer">Buyer</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary text-center">Signup</button>
+
+      <a href="/login/" class="text-decoration-none">Already User Login</a>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

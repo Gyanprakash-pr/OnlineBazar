@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Online Bazar | Contact us Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="bg-primary text-light text-center p-2 mb-2">
+                guptagyanprakash8@gmail.com
+            </div>
+            <div class="bg-primary text-light text-center p-2 mb-2">
+                8795649840
+            </div>
+            <div class="bg-primary text-light text-center p-2 mb-2">
+                sector 22,Noida,UP
+            </div>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="100%" height="500px" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=sector%2022,Noida,UP&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></style>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <h3 class="p-2 mb-2 bg-white text-black text-center">Contact Us Section</h3>
+
+
+
+            {% for i in messages %}
+            <div class="alert alert-success" role="alert">
+                {{i}}
+            </div>
+
+            {% endfor %}
+
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-1">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
+
+                
+                </div>
+                <div class="mb-1">
+                    <label for="email" class="form-label">Email Id</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter Subject">
+
+                </div>
+
+                <div class="mb-1">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" placeholder="Enter Your Phone No">
+
+
+                </div>
+                <div class="mb-1">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" name="subject" placeholder="Enter Subject">
+
+                </div>
+                <div class="mb-1">
+                    <label for="massege" class="form-label">Massege</label>
+                    <textarea name="massege" rows="6" class="form-control"></textarea>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary text-center">Send</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
